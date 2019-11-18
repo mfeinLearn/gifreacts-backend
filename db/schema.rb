@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_18_165434) do
+ActiveRecord::Schema.define(version: 2019_11_18_182110) do
+
+  create_table "emotions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "gifs", force: :cascade do |t|
     t.string "name"
+    t.integer "emotion_id"
+    t.integer "humor_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "humer_types", force: :cascade do |t|
+    t.integer "range"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

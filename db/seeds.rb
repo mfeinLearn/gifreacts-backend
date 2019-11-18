@@ -5,4 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Gif.create(name: "Primary Shapes")
+
+Emotion.create(name: "Happy")
+HumerType.create(range: 2)
+Gif.create(name: "Primary Shape" ,emotion_id: Emotion.all[0].id, humor_type_id: HumerType.all[0].id)
+
+#
+# Gif.new(name: "HaHa", emotion_id:e.id , humor_type_id:h.id)
