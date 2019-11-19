@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_182110) do
   create_table "gifs", force: :cascade do |t|
     t.string "name"
     t.integer "emotion_id"
-    t.integer "humor_type_id"
+    t.integer "humer_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
