@@ -16,6 +16,11 @@ class Api::V1::GifsController < ApplicationController
   # POST /gifs
   def create
     @gif = Gif.new(gif_params)
+    @emotion = Emotion.find_or_create_by(name: params[:name])
+    @humer_type = HumerType.find_or_create_by(range: params[:range])
+
+    @gif.emotion = @emotion
+    @gif.humer_type = @humer_type
 
     if @gif.save
       render json: @gif, status: :created, location: @gif
