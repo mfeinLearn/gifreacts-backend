@@ -4,8 +4,12 @@ class Api::V1::GifsController < ApplicationController
   # GET /gifs
   def index
     @gifs = Gif.all
-
-    render json: @gifs
+    #render json: @gifs
+  #  sighting = Sighting.find_by(id: params[:id])
+    options = {
+      include: [:humer_type, :emotion]
+    }
+    render json: GifSerializer.new(@gifs, options)
   end
 
   # GET /gifs/1
