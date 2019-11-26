@@ -1,6 +1,6 @@
 class EmotionSerializer
   include FastJsonapi::ObjectSerializer
-  attributes
+  attribute :name
   has_many :gifs
   has_many :humer_types, through: :gifs
 end
