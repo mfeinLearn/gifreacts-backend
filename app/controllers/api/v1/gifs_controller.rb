@@ -14,7 +14,10 @@ class Api::V1::GifsController < ApplicationController
 
   # GET /gifs/1
   def show
-    render json: @gif
+    options = {
+      include: [:humer_type, :emotion]
+    }
+    render json: GifSerializer.new(@gifs, options)
   end
 
   # POST /gifs
@@ -28,7 +31,10 @@ class Api::V1::GifsController < ApplicationController
     @gif.humer_type = @humer_type
     #byebug
     if @gif.save
-      render json: @gif#, status: :created, location: @gif
+      options = {
+        include: [:humer_type, :emotion]
+      }
+      render json: GifSerializer.new(@gif, options)
     else
       render json: @gif.errors, status: :unprocessable_entity
     end
@@ -37,7 +43,10 @@ class Api::V1::GifsController < ApplicationController
   # PATCH/PUT /gifs/1
   def update
     if @gif.update(gif_params)
-      render json: @gif
+      options = {
+        include: [:humer_type, :emotion]
+      }
+      render json: GifSerializer.new(@gif, options)
     else
       render json: @gif.errors, status: :unprocessable_entity
     end
