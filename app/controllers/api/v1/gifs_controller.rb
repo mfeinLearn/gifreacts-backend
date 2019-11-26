@@ -6,9 +6,13 @@ class Api::V1::GifsController < ApplicationController
     @gifs = Gif.all
     #render json: @gifs
   #  sighting = Sighting.find_by(id: params[:id])
-    options = {
-      include: [:humer_type, :emotion]
-    }
+    # options = {}
+    # options[:data][:humer_type] = [:humer_type]
+    # options[:data][:emotion] = [:emotion]
+      #include: [:humer_type, :emotion]
+      options = {
+        include: [:humer_type, :emotion]
+      }
     render json: GifSerializer.new(@gifs, options)
   end
 
@@ -34,6 +38,9 @@ class Api::V1::GifsController < ApplicationController
       options = {
         include: [:humer_type, :emotion]
       }
+      # options = {}
+      # options[:data][:humer_type] = [:humer_type]
+      # options[:data][:emotion] = [:emotion]
       render json: GifSerializer.new(@gif, options)
     else
       render json: @gif.errors, status: :unprocessable_entity
