@@ -1,2 +1,0 @@
-class HumerTypesController < ApplicationController
-end
