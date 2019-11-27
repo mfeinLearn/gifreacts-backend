@@ -75,3 +75,5 @@ class Api::V1::GifsController < ApplicationController
       params.require(:gif).permit(:name)
     end
 end
+# NOTE: When using fast json api and you just render an object like so VVV you get all of the attributes:
+#  render json: @gif
