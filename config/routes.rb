@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   # I want my api to be gifracts.com/api/v1/resource
   namespace :api do
     namespace :v1 do
-      resources :emotions
-      resources :gifs
-      resources :humer_types
+      resources :gifs do
+        resources :emotions
+        resources :humer_types
+      end
     end
   end
 end
