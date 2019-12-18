@@ -49,6 +49,11 @@ class Api::V1::GifsController < ApplicationController
 
   # PATCH/PUT /gifs/1
   def update
+    @emotion = Emotion.find(name: params[:emotion])
+    @humer_type = HumerType.find(range: params["humer_type"])
+
+    @gif.emotion = @emotion
+    @gif.humer_type = @humer_type
     if @gif.update(gif_params)
       # options = {
       #   include: [:humer_type, :emotion]
