@@ -3,7 +3,7 @@ class Api::V1::GifsController < ApplicationController
 
   # GET /gifs
   def index
-    @gifs = Gif.all
+    @gifs = Gif.all.order('id DESC')
     #render json: @gifs
   #  sighting = Sighting.find_by(id: params[:id])
     # options = {}
