@@ -49,8 +49,8 @@ class Api::V1::GifsController < ApplicationController
 
   # PATCH/PUT /gifs/1
   def update
-    @emotion = Emotion.find(name: params[:emotion])
-    @humer_type = HumerType.find(range: params["humer_type"])
+    @emotion = Emotion.find_or_create_by(name: params[:emotion_name])
+    @humer_type = HumerType.find_or_create_by(range: params["humer_type_range"])
 
     @gif.emotion = @emotion
     @gif.humer_type = @humer_type
