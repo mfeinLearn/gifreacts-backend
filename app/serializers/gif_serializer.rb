@@ -1,8 +1,8 @@
 class GifSerializer
   include FastJsonapi::ObjectSerializer
   attribute :name
-  belongs_to :humer_type
-  belongs_to :emotion
+  # belongs_to :humer_type
+  # belongs_to :emotion
 
   attribute :humer_type_range do |object|
     # byebug
